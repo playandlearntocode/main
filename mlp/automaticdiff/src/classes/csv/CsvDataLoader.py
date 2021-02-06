@@ -7,7 +7,7 @@ class CsvDataLoader:
     def load_image_features(self, file_path):
         rows = []
         count = 0
-        return pandas.read_csv('./../csv/input-file.txt')
+        return pandas.read_csv('./../csv/input_file.txt')
 
 
 
@@ -19,7 +19,7 @@ class CsvDataLoader:
 
 
     def get_training_data(self, file_path):
-        image_features_df = self.load_image_features('./../csv/input-file.txt')
+        image_features_df = self.load_image_features('./../csv/input_file.txt')
         correct_outputs_df =  self.load_correct_outputs(file_path)
 
         training_df = pandas.merge(image_features_df, correct_outputs_df,on='file_name')
@@ -34,7 +34,7 @@ class CsvDataLoader:
         #
         # print(numpy.array(training_df.values).shape)
 
-        # (image_features_rows, count_feature_rows) = self.load_image_features('./../csv/input-file.txt')
+        # (image_features_rows, count_feature_rows) = self.load_image_features('./../csv/input_file.txt')
         # (correct_outputs_rows, count_correct_outputs_rows) = self.load_correct_outputs('./../csv/correct-outputs.txt')
         #
         #

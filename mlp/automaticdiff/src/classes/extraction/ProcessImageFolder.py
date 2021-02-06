@@ -23,7 +23,7 @@ class ProcessImageFolder:
         files_list = self.get_files_list(folder_path)
 
 
-        with open ('./../csv/input-file.txt',mode='w',newline='') as csv_file:
+        with open ('./../csv/input_file.txt',mode='w',newline='') as csv_file:
             file_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             file_writer.writerow(['file_name', 'feature1', 'feature2', 'feature3'])
             for file_name in files_list:

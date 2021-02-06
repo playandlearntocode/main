@@ -11,7 +11,7 @@ print('MLP program starting...')
 
 #Load training data from CSV files:
 csv_data_loader = CsvDataLoader()
-data_training =  csv_data_loader.get_training_data('./../csv/correct-distributions-for-training.txt')
+data_training =  csv_data_loader.get_training_data('./../csv/correct_distributions_for_training.txt')
 
 mlps = [MLP(data_training)]
 
@@ -40,7 +40,7 @@ for i in range(0, len(mlps)):
 test_file_name = ''
 test_file_name = input('enter the filename:')
 
-test_file_path = './../test-images/' + test_file_name
+test_file_path = './../test_images/' + test_file_name
 
 image = Image.open(test_file_path)
 image.show()
