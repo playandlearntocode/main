@@ -1,4 +1,4 @@
-#Lucas-Kanade feature tracking algorithm example in Python
+# Lucas-Kanade feature tracking algorithm example in Python
 
 Author:
 Goran Trlin
