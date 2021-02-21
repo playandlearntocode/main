@@ -1,6 +1,7 @@
 '''
 A basic example of a Recurrent Neural Network working with a limited (17 word, includes '.') dictionary in Python from scratch.
 Find out more about this code example and many others at https://playandlearntocode.com
+Author: Goran Trlin
 '''
 import re
 import time

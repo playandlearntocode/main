@@ -1,5 +1,9 @@
-# Main program
-# Backpropagation implemented using automatic differentiation (autograd package)
+'''
+Simple Multilayer Perceptron with Softmax and Cross-Entropy functions
+Author: Goran Trlin
+Find more tutorials and code samples on:
+https://playandlearntocode.com
+'''
 
 import numpy
 from PIL import Image
@@ -28,9 +32,10 @@ for i in range(0, len(mlps)):
     train_count = 0
 
     while train_count < TRAIN_ITERATIONS and total_loss > TARGET_ACCURACY:
-        total_loss = mlps[i].train_network()
+        mlps[i].train_network()
+        (total_delta, total_loss) = mlps[i].calculate_total_error_on_dataset(mlps[i].learning_examples_array)
 
-        print('TOTAL LOSS AT ITERATION (' + str(train_count) + '):')
+        print('TOTAL LOSS AT ITERATION (' + str(i) + '):')
         print(total_loss)
         train_count += 1
 
@@ -52,7 +57,7 @@ img_extractor = ImageFeatureExtractor()
 test_image_row = [test_file_name, test_image_f1, test_image_f2, test_image_f3, 0,0]
 
 print(test_image_row)
-output_from_mlp = mlps[0].make_prediction(test_image_row)
+output_from_mlp = mlps[0].predict(test_image_row)
 
 print('output:')
 print(output_from_mlp)
