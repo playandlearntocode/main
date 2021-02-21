@@ -24,4 +24,6 @@ After you enter a test image filename, the program will tell you whether it is a
 For more information and the full tutorial, visit https://playandlearntocode.com.
 
 Author: Goran Trlin
+
+Find more tutorials and code samples on:
 https://playandlearntocode.com

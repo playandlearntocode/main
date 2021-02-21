@@ -1,8 +1,12 @@
-##Adding autograd package to Multilayer Perceptron
+#Adding autograd package to Multilayer Perceptron
 
-###This is the third article in a series on building a Multilayer Perceptron from scratch in Python
+This is the third article in a series on building a Multilayer Perceptron from scratch in Python
 
-Find the full article on https://playandlearntocode.com
+Author:
+Goran Trlin
+
+Find more tutorials and code samples on:
+https://playandlearntocode.com
 
 
 
