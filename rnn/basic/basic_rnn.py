@@ -1,5 +1,5 @@
 '''
-A basic example of a Recurrent Neural Network working with a limited (17 word, includes '.') dictionary in Python from scratch.
+A basic example of a Recurrent Neural Network working with a limited (17 words, includes '.') dictionary in Python from scratch.
 Find out more about this code example and many others at https://playandlearntocode.com
 Author: Goran Trlin
 '''
@@ -11,6 +11,7 @@ from autograd import grad
 from classes.textinput import TextInput
 
 NUMBER_OF_STEPS = 3  # MEMORY LENGTH / HORIZONTAL LAYERS:
+# Every step has its own input layer and hidden layer. Hidden layer at each step receives the hidden value / output from the step before it ( hidden layer - hidden layer RNN type )
 
 INPUT_LENGTH = 17  # SINGLE WORD IS ENCODED AS 10 BIT ONE-HOT VECTOR
 HIDDEN_LENGTH = 17  # NUMBER OF NEURONS IN HIDDEN LAYER PER STEP
@@ -163,16 +164,16 @@ class BasicRNN:
         for i in range(NUMBER_OF_STEPS):
             if i == 0:
                 # first step:
-                current_input_row = self.inputs[i]  # 7x1
-                current_weight_matrix = weights[0][i]  # 7x16
+                current_input_row = self.inputs[i]  #17x1
+                current_weight_matrix = weights[0][i]  #17x17
                 current_row_from_input = np.matmul(np.transpose(current_input_row), current_weight_matrix)
                 self.new_hidden_values = np.array([current_row_from_input], dtype=float)
             else:
                 # one of the following steps:
                 previous_hidden = self
-                previous_hidden_row = self.hidden_values[i - 1]  # 16x1
-                current_input_row = self.inputs[i]  # 7x1
-                current_weight_matrix = weights[0][i]  # 7x16
+                previous_hidden_row = self.hidden_values[i - 1]  # 17x1
+                current_input_row = self.inputs[i]  #17x1
+                current_weight_matrix = weights[0][i]  #17x17
 
                 current_row_from_input = np.matmul(np.transpose(current_input_row), current_weight_matrix)
                 current_row_from_both_sources = current_row_from_input + previous_hidden_row
@@ -184,7 +185,7 @@ class BasicRNN:
 
         # OUTPUT LAYER (SOFTMAX):
         # SINGLE WORD OUTPUT
-        current_hidden_row = self.hidden_values[NUMBER_OF_STEPS - 1]  # 16x1
+        current_hidden_row = self.hidden_values[NUMBER_OF_STEPS - 1]  # 17x1
         current_weight_matrix = weights[1][NUMBER_OF_STEPS - 1]
 
         current_output_row = np.matmul(np.transpose(current_hidden_row), current_weight_matrix)
@@ -210,10 +211,10 @@ class BasicRNN:
         Performs Gradient Descent
         :return:
         '''
-        # fixed constant; influces the speed of convergence:
+        # fixed constant; this value influences the speed of convergence:
         learning_rate = 0.4
 
-        for layer in range(0, 2):
+        for layer in range(0, 2): # 0 -> input to hidden layer; 1 -> hidden layer to output layer
             for step in range(NUMBER_OF_STEPS):
                 for i in range(self.weights[layer][step].shape[0]):
                     for j in range(self.weights[layer][step].shape[1]):
