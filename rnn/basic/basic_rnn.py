@@ -13,7 +13,7 @@ from classes.textinput import TextInput
 NUMBER_OF_STEPS = 3  # MEMORY LENGTH / HORIZONTAL LAYERS:
 # Every step has its own input layer and hidden layer. Hidden layer at each step receives the hidden value / output from the step before it ( hidden layer - hidden layer RNN type )
 
-INPUT_LENGTH = 17  # SINGLE WORD IS ENCODED AS 10 BIT ONE-HOT VECTOR
+INPUT_LENGTH = 17  # SINGLE WORD IS ENCODED AS A 17 BIT ONE-HOT VECTOR
 HIDDEN_LENGTH = 17  # NUMBER OF NEURONS IN HIDDEN LAYER PER STEP
 OUTPUT_LENGTH = 17  # SAME DIMENSIONS AS INPUT
 
