@@ -64,7 +64,7 @@ w2 = 'now'
 w1_embedding = embeddings_dict.get(w1)
 w2_embedding = embeddings_dict.get(w2)
 
-print('Cosine similarity between ' + w1 + ' and ' + w2 + ':')
+print('Cosine similarity between ' + w1 + ' and ' + w2 + ' (should be high):')
 print(cosine_similarity(w1_embedding, w2_embedding))
 
 
@@ -75,12 +75,8 @@ w2 = 'is'
 w1_embedding = embeddings_dict.get(w1)
 w2_embedding = embeddings_dict.get(w2)
 
-print('Cosine similarity between ' + w1 + ' and ' + w2 + ':')
+print('Cosine similarity between ' + w1 + ' and ' + w2 + ' (should be low):')
 print(cosine_similarity(w1_embedding, w2_embedding))
-
-print('Probability dictionary:')
-print(nn.CONFIG.CORRECT_CONTEXTS)
-
 
 # COMPARE (SHOULD BE SIMILAR):
 w1 = 'what'
@@ -89,12 +85,8 @@ w2 = 'your'
 w1_embedding = embeddings_dict.get(w1)
 w2_embedding = embeddings_dict.get(w2)
 
-print('Cosine similarity between ' + w1 + ' and ' + w2 + ':')
+print('Cosine similarity between ' + w1 + ' and ' + w2 + ' (should be high):')
 print(cosine_similarity(w1_embedding, w2_embedding))
-
-print('Probability:')
-print(nn.CONFIG.CORRECT_CONTEXTS)
-
 
 # COMPARE (SHOULD BE DISSIMILAR):
 w1 = 'go'
@@ -103,7 +95,7 @@ w2 = 'name'
 w1_embedding = embeddings_dict.get(w1)
 w2_embedding = embeddings_dict.get(w2)
 
-print('Cosine similarity between ' + w1 + ' and ' + w2 + ':')
+print('Cosine similarity between ' + w1 + ' and ' + w2 + ' (should be low):')
 print(cosine_similarity(w1_embedding, w2_embedding))
 
 print('Correct contexts again:')
