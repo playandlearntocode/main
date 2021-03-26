@@ -1,20 +1,20 @@
-from scipy import spatial
 import autograd.numpy as np
 from classes.text_preprocessor import TextPreprocessor
 from classes.skip_gram import SkipGram
 
-def cosine_distance(embbedding1, embedding2):
+def cosine_similarity(embbedding1, embedding2):
     '''
-    Small values indicate similar embeddings ( appearing in many similar contexts )
-    High values indicate non-related embeddings (words)
+    High values indicate similar embeddings ( appearing in many similar contexts )
+    Small values indicate non-related embeddings (words)
     :param embbedding1:
     :param embedding2:
     :return:
     '''
-    return spatial.distance.cosine(embbedding1, embedding2)
 
+    cos_sim = np.dot(embbedding1, embedding2) / (np.linalg.norm(embbedding1) * np.linalg.norm(embedding2))
+    return cos_sim
 
-# MAIN PROGRAM:
+# MAIN PROGRAM:Î
 print('***STARTING MAIN PROGRAM***')
 
 nn = SkipGram()
@@ -53,8 +53,8 @@ print('***GENERATED EMBEDDINGS:***')
 print(embeddings_dict)
 
 '''
-Note: words that end up together in differebt correct_output_words lists ( output lists for different input words ) should have small cosine distance. Example: "go" and "are"
-Words that are not related at all (not appearing in the same contexts) should have high cosine distance. Example: "go" and "is"
+Note: words that end up together in differebt correct_output_words lists ( output lists for different input words ) should have small cosine distance (high cosine similarity). Example: "go" and "are"
+Words that are not related at all (not appearing in the same contexts) should have high cosine distance (small cosine similarity). Example: "go" and "is"
 '''
 
 # COMPARE (SHOULD BE SIMILAR):
@@ -64,8 +64,8 @@ w2 = 'now'
 w1_embedding = embeddings_dict.get(w1)
 w2_embedding = embeddings_dict.get(w2)
 
-print('Cosine distance between ' + w1 + ' and ' + w2 + ':')
-print(cosine_distance(w1_embedding, w2_embedding))
+print('Cosine similarity between ' + w1 + ' and ' + w2 + ':')
+print(cosine_similarity(w1_embedding, w2_embedding))
 
 
 # COMPARE (SHOULD BE DISSIMILAR):
@@ -75,8 +75,8 @@ w2 = 'is'
 w1_embedding = embeddings_dict.get(w1)
 w2_embedding = embeddings_dict.get(w2)
 
-print('Cosine distance between ' + w1 + ' and ' + w2 + ':')
-print(cosine_distance(w1_embedding, w2_embedding))
+print('Cosine similarity between ' + w1 + ' and ' + w2 + ':')
+print(cosine_similarity(w1_embedding, w2_embedding))
 
 print('Probability dictionary:')
 print(nn.CONFIG.CORRECT_CONTEXTS)
@@ -89,8 +89,8 @@ w2 = 'your'
 w1_embedding = embeddings_dict.get(w1)
 w2_embedding = embeddings_dict.get(w2)
 
-print('Cosine distance between ' + w1 + ' and ' + w2 + ':')
-print(cosine_distance(w1_embedding, w2_embedding))
+print('Cosine similarity between ' + w1 + ' and ' + w2 + ':')
+print(cosine_similarity(w1_embedding, w2_embedding))
 
 print('Probability:')
 print(nn.CONFIG.CORRECT_CONTEXTS)
@@ -103,8 +103,8 @@ w2 = 'name'
 w1_embedding = embeddings_dict.get(w1)
 w2_embedding = embeddings_dict.get(w2)
 
-print('Cosine distance between ' + w1 + ' and ' + w2 + ':')
-print(cosine_distance(w1_embedding, w2_embedding))
+print('Cosine similarity between ' + w1 + ' and ' + w2 + ':')
+print(cosine_similarity(w1_embedding, w2_embedding))
 
 print('Correct contexts again:')
 print(nn.CONFIG.CORRECT_CONTEXTS)
