@@ -1,4 +1,4 @@
-# REMOVE INVALID PARENTHESE (LEETCODE PROBLEM 301)
+# REMOVE INVALID PARENTHESES (LEETCODE PROBLEM 301)
 
 Python code for solving th algorithmic problem of removing invalid parentheses in input strings. 
 
