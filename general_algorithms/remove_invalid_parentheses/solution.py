@@ -69,10 +69,11 @@ class Solution:
         else:
             self.r1(s, s_current + new_char, unclosed_count, new_pos + 1, next_char)
 
-    def removeInvalidParentheses(self, s: str):
+    # use this function signature inside of LeetCode editor (camelCase is required in the editor):
+    # def removeInvalidParentheses(self, s: str):
+    def remove_invalid_parentheses(self, s: str):
         '''
-        Main function
-        Note: camelCase notation  in the name of this function is used just to keep in sync with the LeetCode assignment setup.
+        Core function of this example.
         :param s:
         :return:
         '''
