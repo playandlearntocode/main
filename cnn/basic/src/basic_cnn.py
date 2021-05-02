@@ -7,6 +7,7 @@ https://playandlearntocode.com
 '''
 
 import os
+#os.environ['CUDA_VISIBLE_DEVICES'] = '-1' # switch to CPU processing
 import keras
 import numpy as np
 from keras.models import Sequential
@@ -14,11 +15,11 @@ from keras.layers import Conv2D, Dense, Dropout, Flatten, MaxPooling2D
 from keras import backend
 
 from classes.extraction.folder_helper import FolderHelper
-from classes.extraction.image_helper import ImageHelper
 
 print('CNN example starting....')
 if backend.image_data_format() != 'channels_last':
     raise Exception('This example expects a channels_last backend,i.e. TensorFlow')
+
 
 # image properties:
 image_height = 16
@@ -49,13 +50,13 @@ y_training = keras.utils.to_categorical(y_training, num_classes=2)  # expects 0,
 model = Sequential()
 layers = [
     # 1st convolutional layer
-    Conv2D(16, kernel_size=(4, 4), activation='relu', input_shape=input_object_shape),
+    Conv2D(16, kernel_size=(4,4), activation='relu', input_shape=input_object_shape),
     # 2nd convolutional layer
-    Conv2D(128, kernel_size=(8, 8), activation='relu'),
+    Conv2D(32, kernel_size=(8,8), activation='relu'),
     # max pooling:
-    MaxPooling2D(pool_size=(4, 4)),
+    MaxPooling2D(pool_size=(4,4)),
     # some regularization:
-    Dropout(0.1),
+    Dropout(0.33),
     # adjust the data object shape:
     Flatten(),
     # output layer:
@@ -70,13 +71,14 @@ for layer in layers:
 model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.SGD(), metrics=['accuracy'])
 
+
 # set hyperparameters and train the model:
 model.fit(
     x_training[:train_samples], y_training[:train_samples],
     batch_size=1,
     epochs=100,
     verbose=1,
-    validation_split=0.2,  # split input data in 80:20
+    validation_split=0.15  # split input data
 )
 
 # make predictions:

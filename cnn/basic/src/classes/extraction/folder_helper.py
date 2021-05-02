@@ -1,24 +1,22 @@
-# This class takes a folder containing images and extracts features of each image. At the end of the process, the features  can be saved to a .csv file
 import csv
 import numpy as np
 import pandas
+from PIL import Image
 from os import walk
-from .image_helper import ImageHelper
 
 class FolderHelper:
 
     def get_files_list(self, folder_path):
         files_list = []
-
         for(dir_path, dir_names, file_names) in walk(folder_path):
             files_list.extend(file_names)
 
         return files_list
 
     def process_single_image(self, file_path):
-        image_feature_extractor = ImageHelper()
-        return image_feature_extractor.load_image(file_path)
-
+        im = Image.open(file_path)
+        arr = np.array(im)  # arr.shape is h x w x channels
+        return arr
 
     def process_images_folder(self, folder_path,width,height):
         files_list = self.get_files_list(folder_path)
