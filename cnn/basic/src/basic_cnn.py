@@ -7,7 +7,7 @@ https://playandlearntocode.com
 '''
 
 import os
-#os.environ['CUDA_VISIBLE_DEVICES'] = '-1' # switch to CPU processing
+# os.environ['CUDA_VISIBLE_DEVICES'] = '-1' # switch to CPU processing
 import keras
 import numpy as np
 from keras.models import Sequential
@@ -19,7 +19,6 @@ from classes.extraction.folder_helper import FolderHelper
 print('CNN example starting....')
 if backend.image_data_format() != 'channels_last':
     raise Exception('This example expects a channels_last backend,i.e. TensorFlow')
-
 
 # image properties:
 image_height = 16
@@ -39,7 +38,6 @@ x_training = input_images
 labels = fh.process_labels_file('../data/labels.txt')
 y_training = np.array(labels['correct_answer'])
 
-
 # some preprocessing
 x_training = x_training.astype('float32')
 x_training /= 255.0
@@ -51,14 +49,14 @@ y_training = keras.utils.to_categorical(y_training, num_classes=2)  # expects 0,
 model = Sequential()
 layers = [
     # 1st convolutional layer
-    Conv2D(32, kernel_size=(4,4), activation='relu', input_shape=input_object_shape),
+    Conv2D(32, kernel_size=(4, 4), activation='relu', input_shape=input_object_shape),
     # 2nd convolutional layer
-    Conv2D(32, kernel_size=(4,4), activation='relu'),
+    Conv2D(32, kernel_size=(4, 4), activation='relu'),
     # 3rd convolutional layer
-    Conv2D(32, kernel_size=(4,4), activation='relu'),
+    Conv2D(32, kernel_size=(4, 4), activation='relu'),
 
     # max pooling:
-    MaxPooling2D(pool_size=(4,4)),
+    MaxPooling2D(pool_size=(4, 4)),
     # some regularization:
     # Dropout(0.5),
     # adjust the data object shape:
@@ -76,10 +74,11 @@ for layer in layers:
 model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.SGD(), metrics=['accuracy'])
 
+# option for stopping the training earlier:
 earlyStopCallback = keras.callbacks.EarlyStopping(monitor='val_loss',
-                              min_delta=0,
-                              patience=10,
-                              verbose=0, mode='auto')
+                                                  min_delta=0,
+                                                  patience=10,
+                                                  verbose=0, mode='auto')
 
 # set hyperparameters and train the model:
 model.fit(
@@ -88,12 +87,11 @@ model.fit(
     epochs=100,
     verbose=1,
     validation_split=0.2,  # split input data
-    callbacks = []
+    # callbacks = [earlyStopCallback] # uncomment this to enable early stoppings
 )
 
 # make predictions:
 num_of_prediction_samples = 40
-
 pred = model.predict(x_training[:num_of_prediction_samples])
 
 # find correspoding labels:
