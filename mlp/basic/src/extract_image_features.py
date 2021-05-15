@@ -1,7 +1,7 @@
 # Extract Image Features and save them to a CSV file
 import numpy
-from classes.extraction.ProcessImageFolder import ProcessImageFolder
-from classes.csv.CsvDataLoader import CsvDataLoader
+from classes.extraction.process_image_folder import ProcessImageFolder
+from classes.csv.csv_data_loader import CsvDataLoader
 
 print('Image feature extraction is starting.')
 

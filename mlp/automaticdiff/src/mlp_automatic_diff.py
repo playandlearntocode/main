@@ -6,9 +6,9 @@ https://playandlearntocode.com
 '''
 import numpy
 from PIL import Image
-from classes.mlp.MLP import MLP
-from classes.csv.CsvDataLoader import CsvDataLoader
-from classes.extraction.ImageFeatureExtractor import ImageFeatureExtractor
+from classes.mlp.mlp import MLP
+from classes.csv.csv_data_loader import CsvDataLoader
+from classes.extraction.image_feature_extractor import ImageFeatureExtractor
 
 print('MLP program starting...')
 

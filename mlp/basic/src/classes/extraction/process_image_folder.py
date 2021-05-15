@@ -1,7 +1,7 @@
 # This class takes a folder containing images and extracts features of each image. At the end of the process, the features  can be saved to a .csv file
 import csv
 from os import walk
-from classes.extraction.ImageFeatureExtractor import ImageFeatureExtractor
+from classes.extraction.image_feature_extractor import ImageFeatureExtractor
 
 
 class ProcessImageFolder:
