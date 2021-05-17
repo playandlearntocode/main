@@ -1,4 +1,4 @@
-from .solution import Solution
+from solution import Solution
 
 # MAIN TESTING PROGRAM:
 test_input_string = '()())()'
