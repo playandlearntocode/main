@@ -1,3 +1,13 @@
+'''
+Simple permutations generator example in Python
+Generates permutations of an integer array provided as the parameter of permute() method
+
+Author:
+Goran Trlin
+Find this and more code examples on:
+https://playandlearntocode.com
+
+'''
 class PermutationsGenerator:
     all_permutations = []
 
