@@ -9,7 +9,6 @@ https://playandlearntocode.com
 
 '''
 
-
 class Solution:
     # LeetCode camelCase declaration format:
     # def largestRectangleArea(self, heights: List[int]) -> int:
@@ -37,7 +36,6 @@ class Solution:
             else:
                 # smaller bar found, start the unwinding
                 while len(stack) > 0 and heights[stack[-1]] > heights[i]:
-                    # areaWithBar = (i + 1 - stack[-1]) * heights[i]
                     area = max_area
                     if len(stack) == 1:
                         area = max(area, heights[stack[-1]] * i)
@@ -59,7 +57,7 @@ class Solution:
                     area = len(heights) * heights[stack[-1]]
                 else:
                     # not the smallest one:
-                    # cover the area from the end till +1 from the left el. in stack
+                    # cover the area from the end to +1 from the left el. in stack
                     area = max(heights[stack[-1]], heights[stack[-1]] * (len(heights) - stack[-2] - 1))
                 if area > max_area:
                     max_area = area
