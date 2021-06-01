@@ -57,24 +57,24 @@ class MapReader:
         q.append([row, col])  # add to queue
 
         while len(q) > 0:
-            [curRow, curCol] = q[0]
+            [cur_row, cur_col] = q[0]
             del q[0]
 
-            if (self.is_one(grid, curRow - 1, curCol) == True):
-                grid[curRow - 1][curCol] = -1
-                q.append([curRow - 1, curCol])
+            if (self.is_one(grid, cur_row - 1, cur_col) == True):
+                grid[cur_row - 1][cur_col] = -1
+                q.append([cur_row - 1, cur_col])
 
-            if (self.is_one(grid, curRow + 1, curCol) == True):
-                grid[curRow + 1][curCol] = -1
-                q.append([curRow + 1, curCol])
+            if (self.is_one(grid, cur_row + 1, cur_col) == True):
+                grid[cur_row + 1][cur_col] = -1
+                q.append([cur_row + 1, cur_col])
 
-            if (self.is_one(grid, curRow, curCol - 1) == True):
-                grid[curRow][curCol - 1] = -1
-                q.append([curRow, curCol - 1])
+            if (self.is_one(grid, cur_row, cur_col - 1) == True):
+                grid[cur_row][cur_col - 1] = -1
+                q.append([cur_row, cur_col - 1])
 
-            if (self.is_one(grid, curRow, curCol + 1) == True):
-                grid[curRow][curCol + 1] = -1
-                q.append([curRow, curCol + 1])
+            if (self.is_one(grid, cur_row, cur_col + 1) == True):
+                grid[cur_row][cur_col + 1] = -1
+                q.append([cur_row, cur_col + 1])
 
     def count_islands(self, reduced_map):
         '''

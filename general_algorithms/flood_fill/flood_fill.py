@@ -17,7 +17,7 @@ def main():
     color_threshold = 254 # sea = white area, islands = green areas
 
     img_loader = ImageLoader()
-    (loaded_image, pixels) = img_loader.load_image('images/map3.png')
+    (loaded_image, pixels) = img_loader.load_image('images/map2.png')
 
     reduced_map = [] # map of 1s and 0s. 1 - island area, 0 - sea area
     for i in range(image_height):
