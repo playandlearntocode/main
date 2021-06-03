@@ -14,7 +14,7 @@ def cosine_similarity(embbedding1, embedding2):
     cos_sim = np.dot(embbedding1, embedding2) / (np.linalg.norm(embbedding1) * np.linalg.norm(embedding2))
     return cos_sim
 
-# MAIN PROGRAM:Î
+# MAIN PROGRAM:
 print('***STARTING MAIN PROGRAM***')
 
 nn = SkipGram()

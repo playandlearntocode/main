@@ -25,7 +25,6 @@ TRAIN_ITERATIONS = 100
 TARGET_ACCURACY = 2
 
 for i in range(0, len(mlps)):
-
     total_loss = 99999
     total_delta = 9999
     train_count = 0
@@ -40,9 +39,7 @@ for i in range(0, len(mlps)):
     print ('Training stopped at step #' + str(train_count) + ' for i=' + str(i))
 
 # TESTING PHASE:
-test_file_name = ''
 test_file_name = input('enter the filename:')
-
 test_file_path = './../test_images/' + test_file_name
 
 image = Image.open(test_file_path)
@@ -57,13 +54,12 @@ test_image_row = [test_file_name, test_image_f1, test_image_f2, test_image_f3, 0
 print(test_image_row)
 output_from_mlp = mlps[0].make_prediction(test_image_row)
 
-print('output:')
+print('Output:')
 print(output_from_mlp)
 
 labels = ['CIRCLE', 'LINE']
 
 index =  numpy.argmax(output_from_mlp)
-# print('index = ' + str(index))
 label = labels[index]
 
 print ('This image is a ' + label)
