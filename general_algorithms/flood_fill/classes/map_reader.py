@@ -26,7 +26,7 @@ class MapReader:
 
     def is_one(self, grid, row, col):
         '''
-        Helper method for checking whether the value of the pixel at the provided coordinates
+        Helper method for checking whether the pixel belongs to an island or not
         '''
         if (row < 0 or row > len(grid) - 1):
             return False
