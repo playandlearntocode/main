@@ -4,9 +4,6 @@ class MapReader:
     '''
 
     def recursive_flood_fill(self, grid, row: int, col: int):
-        '''
-        Recursive flood fill can get stopped by stack limits (maximum recursion depth error). Iterative version doesn't have this problem.
-        '''
         if (row < 0 or row > len(grid) - 1):
             return
 
@@ -19,10 +16,10 @@ class MapReader:
         if (grid[row][col] == 1):
             grid[row][col] = -1
 
-        self.flood_fill(grid, row - 1, col)
-        self.flood_fill(grid, row + 1, col)
-        self.flood_fill(grid, row, col - 1)
-        self.flood_fill(grid, row, col + 1)
+        self.recursive_flood_fill(grid, row - 1, col)
+        self.recursive_flood_fill(grid, row + 1, col)
+        self.recursive_flood_fill(grid, row, col - 1)
+        self.recursive_flood_fill(grid, row, col + 1)
 
     def is_one(self, grid, row, col):
         '''
