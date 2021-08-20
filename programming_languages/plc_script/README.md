@@ -1,7 +1,6 @@
 **plc_script** - super tiny programming language for learning about parsers, compilers and virtual machines
 
-Author: Goran Trli
-n
+Author: Goran Trlin
 https://playandlearntocode.com
 
 
