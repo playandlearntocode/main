@@ -10,7 +10,7 @@ https://playandlearntocode.com
 Supported features:
 - variable declaration and assignment
 - numbers and strings as builtin types 
-- binary operators (==,<,?)
+- binary operators (==,<,>)
 - addition, subtraction, multiplication, division operators
 - user defined function definitions and calls
 - builtin functions (only one at the moment - printIt())
