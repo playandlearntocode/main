@@ -1,13 +1,10 @@
-**plc_script** - super tiny programming language for learning about parsers, compilers and virtual machines
+**plc_script** - super tiny programming language intended for learning about parsers, compilers and virtual machines
 
 Author: Goran Trlin
 
 https://playandlearntocode.com
 
-
-**plc_script** is a super tiny programming language intended for learning purposes.
-Parsed with an LL(1) parser and interpreted with an AST (Abstract Syntax Tree) interpreter
-Tokenizer relies on regular expressions input sequnce tokenization
+**plc_script** repository includes an LL(1) parser, an  AST interpreter and an regular expression based tokenizer
 
 
 Supported features:
