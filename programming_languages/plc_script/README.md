@@ -4,7 +4,7 @@ Author: Goran Trlin
 
 https://playandlearntocode.com
 
-**plc_script** repository includes an LL(1) parser, an  AST interpreter and an regular expression based tokenizer
+**plc_script** repository includes an LL(1) parser, an AST interpreter and a regular expression based tokenizer
 
 
 Supported features:
